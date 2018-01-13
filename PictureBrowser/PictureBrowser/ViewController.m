@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LYPictureBrowserView.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray *data1 = @[
+                       [UIImage imageNamed:@"image1.pic"],
+                       [UIImage imageNamed:@"image2.pic"],
+                       [UIImage imageNamed:@"image3.pic"],
+                       [UIImage imageNamed:@"image4.pic"],
+                       [UIImage imageNamed:@"image5.pic"],
+                       [UIImage imageNamed:@"image6.pic"],
+                       [UIImage imageNamed:@"image7.pic"],
+                       [UIImage imageNamed:@"image8.pic"],
+                       ];
+    
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat height = width * 9 / 16;
+    
+    [self.view addSubview:({
+        LYPictureBrowserView *pictureBrowserView = [[LYPictureBrowserView alloc] initWithFrame:CGRectMake(0, 20, width, height) intervalTime:3];
+        [pictureBrowserView setDataSource:data1];
+        pictureBrowserView.didSelectPictureBrowserViewBlock = ^(LYPictureBrowserView *viwe, NSInteger index) {
+            NSLog(@"\ndid selected index = %ld", (long)index);
+        };
+        pictureBrowserView;
+    })];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

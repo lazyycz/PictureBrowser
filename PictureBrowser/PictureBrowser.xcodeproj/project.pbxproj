@@ -13,6 +13,8 @@
 		162D8E752009C32A0031543C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162D8E742009C32A0031543C /* Assets.xcassets */; };
 		162D8E782009C32A0031543C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162D8E762009C32A0031543C /* LaunchScreen.storyboard */; };
 		162D8E7B2009C32A0031543C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E7A2009C32A0031543C /* main.m */; };
+		162D8E832009E3DA0031543C /* LYSampleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */; };
+		162D8E862009F70A0031543C /* LYPictureBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E852009F70A0031543C /* LYPictureBrowserView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		162D8E772009C32A0031543C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		162D8E792009C32A0031543C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		162D8E7A2009C32A0031543C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		162D8E812009E3DA0031543C /* LYSampleCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYSampleCollectionViewCell.h; sourceTree = "<group>"; };
+		162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYSampleCollectionViewCell.m; sourceTree = "<group>"; };
+		162D8E842009F70A0031543C /* LYPictureBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPictureBrowserView.h; sourceTree = "<group>"; };
+		162D8E852009F70A0031543C /* LYPictureBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPictureBrowserView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,10 @@
 				162D8E6C2009C32A0031543C /* AppDelegate.m */,
 				162D8E6E2009C32A0031543C /* ViewController.h */,
 				162D8E6F2009C32A0031543C /* ViewController.m */,
+				162D8E842009F70A0031543C /* LYPictureBrowserView.h */,
+				162D8E852009F70A0031543C /* LYPictureBrowserView.m */,
+				162D8E812009E3DA0031543C /* LYSampleCollectionViewCell.h */,
+				162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */,
 				162D8E712009C32A0031543C /* Main.storyboard */,
 				162D8E742009C32A0031543C /* Assets.xcassets */,
 				162D8E762009C32A0031543C /* LaunchScreen.storyboard */,
@@ -143,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				162D8E702009C32A0031543C /* ViewController.m in Sources */,
+				162D8E832009E3DA0031543C /* LYSampleCollectionViewCell.m in Sources */,
 				162D8E7B2009C32A0031543C /* main.m in Sources */,
+				162D8E862009F70A0031543C /* LYPictureBrowserView.m in Sources */,
 				162D8E6D2009C32A0031543C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
