@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LYPictureBrowserView.h"
+#import "LYAdvertisingView.h"
 
 @interface ViewController ()
 
@@ -29,6 +30,13 @@
                        [UIImage imageNamed:@"image8.pic"],
                        ];
     
+    NSArray *data2 = @[
+                       [UIImage imageNamed:@"picture1.pic"],
+                       [UIImage imageNamed:@"picture2.pic"],
+                       [UIImage imageNamed:@"picture3.pic"],
+                       [UIImage imageNamed:@"picture4.pic"],
+                       ];
+    
     CGFloat width = self.view.bounds.size.width;
     CGFloat height = width * 9 / 16;
     
@@ -39,6 +47,12 @@
             NSLog(@"\ndid selected index = %ld", (long)index);
         };
         pictureBrowserView;
+    })];
+    
+    [self.view addSubview:({
+        LYAdvertisingView *advertisingView = [[LYAdvertisingView alloc] initWithFrame:CGRectMake(0, height + 50, width, height)];
+        [advertisingView setDataSource:data2];
+        advertisingView;
     })];
 }
 

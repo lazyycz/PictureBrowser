@@ -9,15 +9,18 @@
 #import "LYPictureBrowserView.h"
 #import "LYSampleCollectionViewCell.h"
 
+const NSUInteger kCellGroupCount = 100;
+
 @interface LYPictureBrowserView () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 
-@property (nonatomic, assign) NSTimeInterval duringTime;
 @property (nonatomic, strong) NSArray <UIImage *>*dataSource;
 @property (nonatomic, strong) NSMutableArray <NSNumber *>*cellData;
 @property (nonatomic, assign) NSInteger dataSourceCount;
+
+@property (nonatomic, assign) NSTimeInterval duringTime;
 @property (strong, nonatomic) NSTimer *timer;
 
 @end
@@ -48,24 +51,30 @@ static NSString *cellIdentifier = @"LYSampleCollectionViewCell";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger index = [self.cellData[indexPath.row] integerValue];
+    return [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+}
 
-    LYSampleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell reloadCellWithImage:self.dataSource[index]];
-    
-    return cell;
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0)
+{
+    NSInteger index = [self.cellData[indexPath.row] integerValue];
+    [(LYSampleCollectionViewCell *)cell reloadCellWithImage:self.dataSource[index]];
+    self.pageControl.currentPage = index;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     int inc = ((int)(scrollView.contentOffset.x / scrollView.frame.size.width)) % self.dataSourceCount;
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:50 * self.dataSourceCount + inc inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
-
-    self.pageControl.currentPage = inc;
+    [self scrollToItemAtIndex:self.cellData.count / 2 + inc animated:NO];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     !self.didSelectPictureBrowserViewBlock ? : self.didSelectPictureBrowserViewBlock(self, [self.cellData[indexPath.row] integerValue]);
 }
+
+- (void)scrollToItemAtIndex:(NSInteger)indx animated:(BOOL)animated
+{
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:indx inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:animated];
+}
+
 
 - (void)setDataSource:(NSArray<UIImage *> *)dataSource
 {
@@ -73,14 +82,14 @@ static NSString *cellIdentifier = @"LYSampleCollectionViewCell";
     self.dataSourceCount = _dataSource.count;
     
     self.cellData = [NSMutableArray array];
-    for (int i=0; i<100; i++) {
+    for (int i=0; i<kCellGroupCount; i++) {
         for (int j=0; j<self.dataSourceCount; j++) {
             [self.cellData addObject:@(j)];
         }
     }
 
     [self.collectionView reloadData];
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:50 * self.dataSourceCount inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    [self scrollToItemAtIndex:self.cellData.count / 2 animated:NO];
     
     self.pageControl.numberOfPages = self.dataSourceCount;
     self.pageControl.currentPage = 0;
@@ -113,10 +122,10 @@ static NSString *cellIdentifier = @"LYSampleCollectionViewCell";
         NSInteger row = indexPath.row;
         
         if (row % self.dataSourceCount == 0) {
-            row = 50 * self.dataSourceCount;         // 重新定位
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+            row = self.cellData.count / 2;         // 重新定位
+            [self scrollToItemAtIndex:row animated:NO];
         }
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+        [self scrollToItemAtIndex:row + 1 animated:YES];
         self.pageControl.currentPage = (row + 1) % self.dataSourceCount;
     }
 }

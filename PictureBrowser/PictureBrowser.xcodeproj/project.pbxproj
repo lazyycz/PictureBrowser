@@ -15,6 +15,8 @@
 		162D8E7B2009C32A0031543C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E7A2009C32A0031543C /* main.m */; };
 		162D8E832009E3DA0031543C /* LYSampleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */; };
 		162D8E862009F70A0031543C /* LYPictureBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162D8E852009F70A0031543C /* LYPictureBrowserView.m */; };
+		1692E093200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692E091200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.m */; };
+		1692E096200C808A0018ECD6 /* LYAdvertisingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692E095200C808A0018ECD6 /* LYAdvertisingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYSampleCollectionViewCell.m; sourceTree = "<group>"; };
 		162D8E842009F70A0031543C /* LYPictureBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPictureBrowserView.h; sourceTree = "<group>"; };
 		162D8E852009F70A0031543C /* LYPictureBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPictureBrowserView.m; sourceTree = "<group>"; };
+		1692E091200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAdvertisingCollectionViewFlowLaout.m; sourceTree = "<group>"; };
+		1692E092200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYAdvertisingCollectionViewFlowLaout.h; sourceTree = "<group>"; };
+		1692E094200C808A0018ECD6 /* LYAdvertisingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYAdvertisingView.h; sourceTree = "<group>"; };
+		1692E095200C808A0018ECD6 /* LYAdvertisingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYAdvertisingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +76,12 @@
 				162D8E6F2009C32A0031543C /* ViewController.m */,
 				162D8E842009F70A0031543C /* LYPictureBrowserView.h */,
 				162D8E852009F70A0031543C /* LYPictureBrowserView.m */,
+				1692E094200C808A0018ECD6 /* LYAdvertisingView.h */,
+				1692E095200C808A0018ECD6 /* LYAdvertisingView.m */,
 				162D8E812009E3DA0031543C /* LYSampleCollectionViewCell.h */,
 				162D8E822009E3DA0031543C /* LYSampleCollectionViewCell.m */,
+				1692E092200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.h */,
+				1692E091200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.m */,
 				162D8E712009C32A0031543C /* Main.storyboard */,
 				162D8E742009C32A0031543C /* Assets.xcassets */,
 				162D8E762009C32A0031543C /* LaunchScreen.storyboard */,
@@ -154,6 +164,8 @@
 			files = (
 				162D8E702009C32A0031543C /* ViewController.m in Sources */,
 				162D8E832009E3DA0031543C /* LYSampleCollectionViewCell.m in Sources */,
+				1692E093200C80460018ECD6 /* LYAdvertisingCollectionViewFlowLaout.m in Sources */,
+				1692E096200C808A0018ECD6 /* LYAdvertisingView.m in Sources */,
 				162D8E7B2009C32A0031543C /* main.m in Sources */,
 				162D8E862009F70A0031543C /* LYPictureBrowserView.m in Sources */,
 				162D8E6D2009C32A0031543C /* AppDelegate.m in Sources */,
