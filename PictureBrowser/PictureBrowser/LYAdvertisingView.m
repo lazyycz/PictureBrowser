@@ -52,7 +52,7 @@ static NSString *cellIdentifier = @"LYSampleCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    !self.didSelectPictureBrowserViewBlock ? : self.didSelectPictureBrowserViewBlock(self, [self.cellData[indexPath.row] integerValue]);
+    !self.didSelectAdvertisingViewBlock ? : self.didSelectAdvertisingViewBlock(self, indexPath.row);
 }
 
 - (void)scrollToItemAtIndex:(NSInteger)indx animated:(BOOL)animated
@@ -95,6 +95,8 @@ static NSString *cellIdentifier = @"LYSampleCollectionViewCell";
 {
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(5, self.bounds.size.height - 30, self.bounds.size.width - 10, 30)];
+        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor grayColor];
     }
     
     return _pageControl;

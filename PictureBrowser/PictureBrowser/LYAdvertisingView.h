@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LYAdvertisingView;
+
+typedef void(^didSelectAdvertisingView)(LYAdvertisingView *viwe, NSInteger index);
+
 @interface LYAdvertisingView : UIView
+
+@property (nonatomic, copy) didSelectAdvertisingView didSelectAdvertisingViewBlock;
 
 - (void)setDataSource:(NSArray<UIImage *> *)dataSource;
 
